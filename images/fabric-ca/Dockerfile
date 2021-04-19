@@ -26,7 +26,7 @@ RUN go install -tags "${GO_TAGS}" -ldflags "${GO_LDFLAGS}" \
 FROM alpine:${ALPINE_VER}
 RUN apk add --no-cache \
 	tzdata;
-ENV FABRIC_CA_HOME /etc/hyperledger/fabric-ca-server
-COPY --from=builder /go/bin /usr/local/bin
+ENV FABRIC_CA_HOME /etc/mihongtech/mh-ca-server
+COPY --from=builder /go/bin/fabric-ca-server /usr/local/bin/mh-ca-server
 EXPOSE 7054
-CMD fabric-ca-server start -b admin:adminpw
+CMD mh-ca-server start -b admin:adminpw

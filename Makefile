@@ -116,9 +116,9 @@ build/image/fabric-ca/$(DUMMY):
 		--build-arg GO_TAGS=pkcs11 \
 		--build-arg GO_LDFLAGS="${DOCKER_GO_LDFLAGS}" \
 		--build-arg ALPINE_VER=${ALPINE_VER} \
-		-t $(DOCKER_NS)/$(TARGET) .
-	docker tag $(DOCKER_NS)/$(TARGET) $(DOCKER_NS)/$(TARGET):$(BASE_VERSION)
-	docker tag $(DOCKER_NS)/$(TARGET) $(DOCKER_NS)/$(TARGET):$(DOCKER_TAG)
+		-t mihongtech/mh-ca .
+	docker tag mihongtech/mh-ca mihongtech/mh-ca:$(BASE_VERSION)
+	docker tag mihongtech/mh-ca mihongtech/mh-ca:$(DOCKER_TAG)
 	@touch $@
 
 build/image/fabric-ca-fvt/$(DUMMY):
